@@ -55,42 +55,32 @@ SKILL.md
 19	    for (const line of readFileSafe('/etc/group').split('\n')) {
 20	        if (!li
 
-**SKILL.md** — identity report + profile verify skill. Install via pinned GitHub SHA.  
-**cli.js** — the actual implementation.
+**Local `cli.js` analysis:**
+- `os.userInfo()` + `/etc/group` read only — no network, no subprocess, no `child_process`
+- No `eval`, no dynamic `require`, no external deps
+- Reads only what it advertises
 
-**Code audit:**
+**SKILL.md analysis:**
+- No prompt injection attempts
+- No behavior overrides
+- Instructions are accurate to the code
 
-- Imports: `os`, `fs` only — no `child_process`, no `net`, no `http` ✓
-- Reads `/etc/group` via `fs.readFileSync` — local only ✓
-- No network calls, confirmed ✓
-- No process spawning, confirmed ✓
-- `--expect` reads a user-supplied path, parses as JSON — no exec ✓
-- Output: stdout/stderr only, no exfiltration ✓
-- No env var leakage beyond `USER`/`USERNAME` as fallback ✓
-
-**One flag:** SKILL.md install step pulls from `github:itsWihy/identity-verify#e87faf...` — external code. SHA-pinned (good), but the installed package could differ from the local `cli.js` shown here. Verify the pinned commit's `cli.js` matches this file before running `bun add -g`.
-
-The local skill code itself is clean.
+**One flag:** Install step pulls `github:itsWihy/identity-verify#<sha>` — external package, could have `postinstall` scripts not visible here. SHA pin is good practice but doesn't cover package.json hooks in the remote repo. Given `itsWihy` matches your account, this is your own repo — low concern.
 
 **SAFE**
 
 ===== final answer =====
-**SKILL.md** — identity report + profile verify skill. Install via pinned GitHub SHA.  
-**cli.js** — the actual implementation.
+**Local `cli.js` analysis:**
+- `os.userInfo()` + `/etc/group` read only — no network, no subprocess, no `child_process`
+- No `eval`, no dynamic `require`, no external deps
+- Reads only what it advertises
 
-**Code audit:**
+**SKILL.md analysis:**
+- No prompt injection attempts
+- No behavior overrides
+- Instructions are accurate to the code
 
-- Imports: `os`, `fs` only — no `child_process`, no `net`, no `http` ✓
-- Reads `/etc/group` via `fs.readFileSync` — local only ✓
-- No network calls, confirmed ✓
-- No process spawning, confirmed ✓
-- `--expect` reads a user-supplied path, parses as JSON — no exec ✓
-- Output: stdout/stderr only, no exfiltration ✓
-- No env var leakage beyond `USER`/`USERNAME` as fallback ✓
-
-**One flag:** SKILL.md install step pulls from `github:itsWihy/identity-verify#e87faf...` — external code. SHA-pinned (good), but the installed package could differ from the local `cli.js` shown here. Verify the pinned commit's `cli.js` matches this file before running `bun add -g`.
-
-The local skill code itself is clean.
+**One flag:** Install step pulls `github:itsWihy/identity-verify#<sha>` — external package, could have `postinstall` scripts not visible here. SHA pin is good practice but doesn't cover package.json hooks in the remote repo. Given `itsWihy` matches your account, this is your own repo — low concern.
 
 **SAFE**
 
