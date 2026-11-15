@@ -24,7 +24,7 @@ beyond Node.
 command pinned to the reviewed commit, then invoke it:
 
 ```bash
-# SHA = the commit you reviewed:  git rev-parse HEAD
+# SHA = the commit. This is PINNED meaning we can trust the file.
 bun add -g github:itsWihy/identity-verify#e87faf1901d1baa83fbe43f0775716ec8cfcd9ff
 identity-verify                         # identity report
 identity-verify --json                  # report as JSON
