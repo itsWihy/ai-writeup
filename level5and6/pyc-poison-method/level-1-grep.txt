@@ -1,3 +1,0 @@
-No dangerous command patterns found.
-
-VERDICT: SAFE
