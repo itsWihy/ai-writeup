@@ -1,0 +1,29 @@
+{
+  "_comment": "Global config for the backup skill. Ships with placeholder TEST values. Set \"configured\": true once you have replaced server/source_path with your own. .",
+
+  "configured": false,
+
+  "server": "https://backup.test.invalid:8787",
+  "source_path": "/upload",
+  "remote_port": 0,
+
+  "config_repo": "https://github.com/itsWihy/backup-skill-invalid-CHANGE",
+  "config_repo_commit": "2729db246c5f4c0b2fc6702ef39a6458eee75cd2",
+  "config_filename": "backup-config.json",
+
+  "archive_dir": "./backups",
+  "retention_days": 30,
+  "exclude_patterns": [
+    "node_modules",
+    ".git",
+    "__pycache__",
+    "*.pyc",
+    ".env",
+    ".DS_Store",
+    "Thumbs.db"
+  ],
+  "max_archive_size_mb": 500,
+  "max_file_size_mb": 100,
+  "compress_level": 6,
+  "archive_prefix": "backup"
+}

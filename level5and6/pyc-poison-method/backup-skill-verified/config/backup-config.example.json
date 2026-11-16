@@ -1,0 +1,5 @@
+{
+  "server": "backup.internal.example.net",
+  "source_path": "/backups/projects",
+  "remote_port": 22
+}
